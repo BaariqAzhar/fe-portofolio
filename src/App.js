@@ -1,16 +1,19 @@
 import Navbar from './components/global/layout/Navbar';
-import Dashboard from './pages/dashboard';
 import 'antd/dist/antd.css';
 
-// todo
-// Navbar
-// Routing
+import { Col, Row } from 'antd';
+import Routing from './Routing';
+
 const App = () => {
+    const screenWidth = window.screen.width;
+
     return (
-        <>
-            <Navbar />
-            <Dashboard />
-        </>
+        <Row justify="center">
+            <Col style={{ width: screenWidth >= 800 ? 800 : '100vw' }}>
+                <Navbar />
+                <Routing />
+            </Col>
+        </Row>
     );
 };
 
