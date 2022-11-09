@@ -1,24 +1,18 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 import Experience from './pages/experience';
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Dashboard />,
-    },
-    {
-        path: 'experience',
-        element: <Experience />,
-    },
-    {
-        path: '*',
-        element: <>404 not found</>,
-    },
-]);
-
 const Routing = () => {
-    return <RouterProvider router={router} />;
+    return (
+        <Suspense>
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="experience" element={<Experience />} />
+                <Route path="*" element={<div>404 not found</div>} />
+            </Routes>
+        </Suspense>
+    );
 };
 
 export default Routing;
