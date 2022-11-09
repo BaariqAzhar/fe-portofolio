@@ -1,3 +1,4 @@
+import { Avatar, Col, Image, Row, Typography } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -21,8 +22,29 @@ const Intro = ({ data = '' }) => {
     );
 };
 
-const MediaSocial = ({ data }) => {
-    return <>MediaSocial</>;
+const MediaSocialItem = ({ item }) => {
+    return (
+        <Row style={{ background: 'white', padding: '8px 16px 8px 8px', borderRadius: 10 }}>
+            <Col>
+                <Image style={{ borderRadius: '50%', width: 30 }} preview={false} src={item?.logo} />
+            </Col>
+            <Col>
+                <Typography.Text>{item?.name}</Typography.Text>
+            </Col>
+        </Row>
+    );
+};
+
+const MediaSocialList = ({ data }) => {
+    const mediaSocialList = data?.map((item) => {
+        return (
+            <Col key={item?.order}>
+                <MediaSocialItem item={item} />
+            </Col>
+        );
+    });
+
+    return <Row>{mediaSocialList}</Row>;
 };
 
 const DashboardContainer = () => {
@@ -48,7 +70,7 @@ const DashboardContainer = () => {
     return (
         <div style={{ background: '#F1F8FA', width: '100%', borderRadius: 15, padding: 32 }}>
             <Intro data={dashData?.intro?.[0]} />
-            <MediaSocial data={dashData?.socialMedia} />
+            <MediaSocialList data={dashData?.socialMedia} />
         </div>
     );
 };
