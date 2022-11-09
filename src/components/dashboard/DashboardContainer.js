@@ -1,4 +1,4 @@
-import { Avatar, Col, Image, Row, Typography } from 'antd';
+import { Col, Image, Row, Typography } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
