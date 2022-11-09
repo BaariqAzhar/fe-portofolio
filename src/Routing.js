@@ -9,7 +9,7 @@ const Routing = () => {
         <Suspense>
             <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="experience" element={<Experience />} />
+                <Route path="experiences" element={<Experience />} />
                 <Route path="*" element={<div>404 not found</div>} />
             </Routes>
         </Suspense>

@@ -49,7 +49,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <Row gutter={[16, 32]} style={{ paddingTop: 30 }}>
+        <Row gutter={[16, 32]} style={{ paddingTop: 32, paddingBottom: 32 }}>
             <Col>
                 <Image style={{ border: 'red', borderRadius: '50%', width: 80 }} preview={false} src={navbarData?.photo} />
             </Col>
