@@ -1,29 +1,31 @@
 import { Col, Image, Row, Typography } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { API_NODE_EXPRESS } from '../../../helper/constants';
 
-const MenuItem = ({ data }) => {
+const MenuItem = ({ data, active = false }) => {
     return (
         <Link to={data?.path}>
-            <Typography.Link>{data?.name}</Typography.Link>
+            <Typography.Link strong={active} style={{ fontSize: 16 }}>
+                {data?.name}
+            </Typography.Link>
         </Link>
     );
 };
 
 const Menu = ({ data = [] }) => {
-    console.log('data', data);
+    const { pathname } = useLocation();
 
     const menuList = data.map((item) => {
         return (
             <Col key={item?.order}>
-                <MenuItem data={item} />
+                <MenuItem data={item} active={pathname === item?.path} />
             </Col>
         );
     });
 
-    return <Row gutter={[8, 8]}>{menuList}</Row>;
+    return <Row gutter={16}>{menuList}</Row>;
 };
 
 const Navbar = () => {
@@ -54,7 +56,9 @@ const Navbar = () => {
             <Col>
                 <Row>
                     <Col span={24}>
-                        <Typography.Title level={1}>{navbarData?.name}</Typography.Title>
+                        <Typography.Text strong style={{ fontSize: 30 }}>
+                            {navbarData?.name}
+                        </Typography.Text>
                     </Col>
                     <Col span={24}>
                         <Menu data={navbarData?.menu} />

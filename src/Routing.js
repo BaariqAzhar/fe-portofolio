@@ -1,7 +1,8 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/dashboard';
-import Experience from './pages/experience';
+
+const Dashboard = lazy(() => import('./pages/dashboard'));
+const Experience = lazy(() => import('./pages/experience'));
 
 const Routing = () => {
     return (
