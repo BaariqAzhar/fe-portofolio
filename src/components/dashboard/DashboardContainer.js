@@ -24,23 +24,25 @@ const Intro = ({ data = '' }) => {
 
 const MediaSocialItem = ({ item }) => {
     return (
-        <Card bodyStyle={{ padding: 0 }} hoverable>
-            <Row justify="center" align="middle" gutter={[4, 8]} style={{ background: 'white', padding: '8px 16px 8px 8px', borderRadius: 10 }}>
-                <Col>
-                    <Image
-                        style={{
-                            borderRadius: '50%',
-                            height: 30,
-                            maxHeight: 30,
-                        }}
-                        preview={false}
-                        src={item?.logo}
-                    />
-                </Col>
-                <Col>
-                    <Typography.Text>{item?.name}</Typography.Text>
-                </Col>
-            </Row>
+        <Card bodyStyle={{ padding: 0 }} hoverable style={{ background: 'white', padding: '8px 16px 8px 8px', borderRadius: 10 }}>
+            <a href={item?.link}>
+                <Row justify="center" align="middle" gutter={[4, 8]}>
+                    <Col>
+                        <Image
+                            style={{
+                                borderRadius: '50%',
+                                height: 30,
+                                maxHeight: 30,
+                            }}
+                            preview={false}
+                            src={item?.logo}
+                        />
+                    </Col>
+                    <Col>
+                        <Typography.Text>{item?.name}</Typography.Text>
+                    </Col>
+                </Row>
+            </a>
         </Card>
     );
 };
