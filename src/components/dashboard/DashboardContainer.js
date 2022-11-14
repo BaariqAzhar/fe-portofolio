@@ -57,6 +57,7 @@ const DashboardContainer = () => {
                 privilege: 'guest',
             };
             const res = await axios.post(`${API_NODE_EXPRESS}get-dashboard`, payload);
+            // console.log('res', res);
             setDashData(res?.data);
         } catch (error) {
             console.log(error);

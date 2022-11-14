@@ -1,3 +1,3 @@
-import Experience from '../../components/experience/Experience';
+import ExperienceContainer from '../../components/experience/ExperienceContainer';
 
-export default Experience;
+export default ExperienceContainer;
